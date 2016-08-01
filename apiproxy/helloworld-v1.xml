@@ -3,7 +3,7 @@
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1464709933808</CreatedAt>
     <CreatedBy>kkanaskie@apigee.com</CreatedBy>
-    <Description>@BUILDINFO SAGE 477, 479 KVM to 60 seconds and new KVMs</Description>
+    <Description>Initial Build for private org</Description>
     <DisplayName>helloworld-v1</DisplayName>
     <LastModifiedAt>1464709933808</LastModifiedAt>
     <LastModifiedBy>kkanaskie@apigee.com</LastModifiedBy>
