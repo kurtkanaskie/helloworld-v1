@@ -1,0 +1,11 @@
+{
+    "helloworld": {
+        "domain": "sage-dev.apigee.net",
+        "basepath": "/helloworld/v1",
+        "clientId": "REPLACE-CLIENTID",
+        "clientSecret": "REPLACE-CLIENTSECRET",
+        "invalidClientId": "REPLACE-INVALID-CLIENTID",
+        "merchantId": "REPLACE-MERCHANTID",
+        "merchantKey": "REPLACE-MERCHANTKEY"
+    }
+}

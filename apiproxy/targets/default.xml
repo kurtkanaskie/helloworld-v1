@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <Description/>
+    <FaultRules>
+        <FaultRule name="service-unavailable">
+            <Condition>(message.status.code >= 500)</Condition>
+            <Step>
+                <FaultRules/>
+                <Name>AM-Set-Service-Unavailable-Error-Variables</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response>
+            <Step>
+                <Name>AM-add-cors</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="status">
+            <Request>
+                <Step>
+                    <Name>AM-set-bankcard-status-path-suffix</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/status") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="bankcard status">
+            <Request>
+                <Step>
+                    <Name>AM-set-bankcard-status-path-suffix</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/bankcard/status") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="data status">
+            <Request>
+                <Step>
+                    <Name>AM-set-data-status-path-suffix</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/data/status") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <!--
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://gateway.sagepayments.net/web_services/paymentgateway/</URL>
+    </HTTPTargetConnection>
+    -->
+    <HTTPTargetConnection>
+        <LoadBalancer>
+            <Server name="hw-secure"/>
+        </LoadBalancer>
+        <Path>/web_services/paymentgateway{sage.target.pathsuffix}</Path>
+    </HTTPTargetConnection>
+</TargetEndpoint>

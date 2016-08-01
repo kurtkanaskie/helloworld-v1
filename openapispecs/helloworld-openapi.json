@@ -1,0 +1,107 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Hello World",
+        "version": "12.0.0",
+        "title": "helloworld-v1",
+        "contact": {
+            "email": "kkanaskie@apigee.com"
+        }
+    },
+    "host": "sage-dev.apigee.net",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/helloworld/v1",
+    "parameters" : { },
+    "paths": {
+        "/ping": {
+            "get": {
+                "operationId": "get-ping",
+                "description": "Returns a message indicating the API proxy is operational",
+                "consumes": [],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    { "in": "header", "name": "clientId", "description": "Application Identifier also known as API Key", "required": true, "type": "string", "default": "Uvz7ahhlaer3zhOp25BGmAzSQVEbsJNw" },
+                    { "in": "header", "name": "merchantId", "description": "Merchant Identifier", "required": true, "type": "string", "default": "173859436515" },
+                    { "in": "header", "name": "merchantKey", "description": "Merchant Key", "required": true, "type": "string", "default": "P1J2V8P2Q3D8" },
+                    { "in": "header", "name": "nonce", "description": "Secure random number used only once", "required": true, "type": "string", "default": "some-default-value" },
+                    { "in": "header", "name": "timestamp", "description": "Epoch time stamp", "required": true, "type": "string", "default": "1467063914" },
+                    { "in": "header", "name": "Authorization", "description": "Authorization token, HMAC value of: verb + url + body + merchantId + nonce + timestamp", "required": true, "type": "string", "default": "BypassHMAC" },
+                    { "in": "header", "name": "Content-Type", "description": "Valid values are \"application/json\"", "required": true, "type": "string", "default": "application/json" },
+                    { "in": "header", "name": "X-BypassHMAC", "description": "To test set to \"true\"", "required": false, "type": "string", "default": "false" }
+                ],
+                "responses": {
+                    "200": { "description": "OK", "schema": { "$ref": "#/definitions/PingResponse" } },
+                    "400": { "description": "Bad Request" },
+                    "401": { "description": "Unauthorized" }
+                },
+                "deprecated": false
+            }
+        },
+        "/status": {
+            "get": {
+                "operationId": "get-status",
+                "description": "Returns a message indicating the API proxy and back end is operational",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    { "in": "header", "name": "clientId", "description": "Application Identifier also known as API Key", "required": true, "type": "string", "default": "Uvz7ahhlaer3zhOp25BGmAzSQVEbsJNw" },
+                    { "in": "header", "name": "merchantId", "description": "Merchant Identifier", "required": true, "type": "string", "default": "173859436515" },
+                    { "in": "header", "name": "merchantKey", "description": "Merchant Key", "required": true, "type": "string", "default": "P1J2V8P2Q3D8" },
+                    { "in": "header", "name": "nonce", "description": "Secure random number used only once", "required": true, "type": "string", "default": "some-default-value" },
+                    { "in": "header", "name": "timestamp", "description": "Epoch time stamp", "required": true, "type": "string", "default": "1467063914" },
+                    { "in": "header", "name": "Authorization", "description": "Authorization token, HMAC value of: verb + url + body + merchantId + nonce + timestamp", "required": true, "type": "string", "default": "BypassHMAC" },
+                    { "in": "header", "name": "Content-Type", "description": "Valid values are \"application/json\"", "required": true, "type": "string", "default": "application/json" },
+                    { "in": "header", "name": "X-BypassHMAC", "description": "To test set to \"true\"", "required": false, "type": "string", "default": "false" }
+                ],
+                "responses": {
+                    "200": { "description": "OK", "schema": { "$ref": "#/definitions/StatusResponse" } },
+                    "400": { "description": "Bad Request" },
+                    "401": { "description": "Unauthorized" }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "code": { "description": "Error code", "type": "string" },
+                "message": { "description": "Error message", "type": "string" },
+                "info": { "description": "Where to find more inforamation", "type": "string" },
+                "detail": { "description": "Detail error information", "type": "string" }
+            }
+        },
+        "PingResponse": {
+            "type": "object",
+            "properties": {
+                "environment": { "description": "The name of the environment", "type": "string" },
+                "apiproxy": { "description": "The name of the API Proxy", "type": "string" },
+                "client": { "description": "The IP address of the client calling the API", "type": "string" },
+                "time": { "description": "The time when the request was processed", "type": "string" },
+                "latency": { "description": "The total response time to process the API request", "type": "string" },
+                "message": { "description": "Message from the endpoint, gaurenteed to be PONG", "type": "string" },
+                "merchantId": { "description": "The Merchant Identifier provided in the request header", "type": "string" }
+            }
+        },
+        "StatusResponse": {
+            "type": "object",
+            "properties": {
+                "environment": { "description": "The name of the environment", "type": "string" },
+                "apiproxy": { "description": "The name of the API Proxy", "type": "string" },
+                "client": { "description": "The IP address of the client calling the API", "type": "string" },
+                "time": { "description": "The time when the request was processed", "type": "string" },
+                "proxyLatency": { "description": "The time in milli-seconds for the front end to process the API request", "type": "string" },
+                "targetLatency": { "description": "The time in milli-seconds for the back end to process the API request", "type": "string" },
+                "latency": { "description": "The total response time to process the API request", "type": "string" },
+                "message": { "description": "Message from the endpoint, gaurenteed to be STATUS", "type": "string" },
+                "backendMessage": { "description": "Message recieved from the back end typically including an non-descript tag and date information", "type": "string" },
+                "merchantId": { "description": "The Merchant Identifier provided in the request header", "type": "string" }
+            }
+        }
+    }
+}
+

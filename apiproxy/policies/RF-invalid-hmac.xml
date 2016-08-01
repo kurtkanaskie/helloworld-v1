@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-invalid-hmac">
+    <DisplayName>RF invalid hmac</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="text/plain"/>
+            <StatusCode>400</StatusCode>
+            <ReasonPhrase>Invalid HMAC</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

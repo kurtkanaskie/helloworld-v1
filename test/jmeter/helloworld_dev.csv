@@ -1,0 +1,5 @@
+testcaseid,userstory,testcasedescription,env,servername,path,execute,assertheader,assertcontent,assertcontentnegative
+helloworld-1-1,helloworld-1,valid proxy,dev,sage-dev.apigee.net,/helloworld/v1/ping,Y,HTTP/1.1 200 OK,PONG,NON-EXISTENT-WORD
+helloworld-1-2,helloworld-2,valid MID,dev,sage-dev.apigee.net,/helloworld/v1/ping,Y,HTTP/1.1 200 OK,MID,NON-EXISTENT-WORD
+helloworld-1-3,helloworld-3,path suffix not found,dev,sage-dev.apigee.net,/helloworld/v1/foo,Y,HTTP/1.1 404 Not Found,Resource not found,NON-EXISTENT-WORD
+helloworld-1-4,helloworld-4,path suffix not found,dev,sage-dev.apigee.net,/helloworld/v1/foo/bar,Y,HTTP/1.1 404 Not Found,Resource not found,NON-EXISTENT-WORD

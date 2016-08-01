@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-default-proxy-fault">
+    <DisplayName>AM default proxy fault</DisplayName>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">{
+	"code": "@sage.error.code#",
+	"message": "@sage.error.message#",
+	"info": "@sage.error.info#"
+}
+</Payload>
+        <StatusCode>{sage.error.status}</StatusCode>
+        <ReasonPhrase>{sage.error.reason}</ReasonPhrase>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

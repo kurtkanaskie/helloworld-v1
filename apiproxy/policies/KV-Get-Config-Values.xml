@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KV-Get-Config-Values" mapIdentifier="sps-configuration">
+    <DisplayName>KV - Get Config Values</DisplayName>
+    <Properties/>
+    <ExpiryTimeInSecs>60</ExpiryTimeInSecs>
+    <Get assignTo="sage.loggingUrl" index="1">
+        <Key>
+            <Parameter>loggingUrl</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="sage.logging" index="1">
+        <Key>
+            <Parameter>logging</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

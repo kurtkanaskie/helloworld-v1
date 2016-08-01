@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-get-required-params">
+    <DisplayName>EV get required params</DisplayName>
+    <Properties/>
+    <Header name="clientId">
+        <Pattern ignoreCase="false">{sage.clientId}</Pattern>
+    </Header>
+    <Header name="merchantId">
+        <Pattern ignoreCase="false">{sage.merchantId}</Pattern>
+    </Header>
+    <Header name="merchantKey">
+        <Pattern ignoreCase="false">{sage.merchantKey}</Pattern>
+    </Header>
+    <Header name="timestamp">
+        <Pattern ignoreCase="false">{sage.timestamp}</Pattern>
+    </Header>
+    <Header name="nonce">
+        <Pattern ignoreCase="false">{sage.nonce}</Pattern>
+    </Header>
+    <Header name="Authorization">
+        <Pattern ignoreCase="false">{sage.hmac}</Pattern>
+    </Header>
+    <Variable name="request.header.host">
+        <Pattern>{sage.host}</Pattern>
+    </Variable>
+    <Variable name="request.uri">
+        <Pattern>{sage.uri}</Pattern>
+    </Variable>
+    <Variable name="verifyapikey.VA-header.client_secret">
+        <Pattern>{sage.clientSecret}</Pattern>
+    </Variable>
+</ExtractVariables>

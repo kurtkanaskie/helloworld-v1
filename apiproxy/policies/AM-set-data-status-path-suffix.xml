@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-set-data-status-path-suffix">
+    <DisplayName>AM set data status path suffix</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>sage.target.pathsuffix</Name>
+        <Value>/data/ping</Value>
+        <Ref/>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>target.copy.pathsuffix</Name>
+        <Value>false</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

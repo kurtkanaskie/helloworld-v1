@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-cors">
+    <DisplayName>RF cors</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Remove>
+            <Headers/>
+        </Remove>
+        <Set>
+            <Headers>
+                <Header name="Access-Control-Allow-Origin">*</Header>
+                <Header name="Access-Control-Allow-Headers">origin, x-requested-with, accept, clientId, merchantId, merchantKey, Authorization, nonce, timestamp, x-bypasshmac</Header>
+                <Header name="Access-Control-Max-Age">3628800</Header>
+                <Header name="Access-Control-Allow-Methods">GET, PUT, POST, DELETE</Header>
+            </Headers>
+            <Payload contentType="text/xml">
+                <message>hello</message>
+            </Payload>
+            <StatusCode>200</StatusCode>
+            <ReasonPhrase>hello</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
