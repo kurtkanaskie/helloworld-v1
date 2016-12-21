@@ -277,12 +277,12 @@
                             <value>${tfs.changeset} ${build.tag} ===</value>
                         </replacement>
                         <replacement>
-                            <token>token-v1</token>
-                            <value>token-${user.name}v1</value>
+                            <token>helloworld/v1</token>
+                            <value>helloworld/${user.name}v1</value>
                         </replacement>
                         <replacement>
-                            <token>/token/v1</token>
-                            <value>/token/${user.name}v1</value>
+                            <token>dev</token>
+                            <value>${apigee.env}</value>
                         </replacement>
                         <replacement>
                             <token>sage-dev.apigee.net</token>

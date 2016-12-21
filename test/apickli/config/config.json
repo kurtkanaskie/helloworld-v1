@@ -1,6 +1,6 @@
 {
     "helloworld": {
-        "domain": "sage-dev.apigee.net",
+        "domain": "kurtkanaskie-dev.apigee.net",
         "basepath": "/helloworld/v1",
         "clientId": "REPLACE-CLIENTID",
         "clientSecret": "REPLACE-CLIENTSECRET",
