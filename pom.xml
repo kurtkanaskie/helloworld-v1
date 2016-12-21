@@ -277,16 +277,16 @@
                             <value>${tfs.changeset} ${build.tag} ===</value>
                         </replacement>
                         <replacement>
+                            <token>helloworld-v1</token>
+                            <value>helloworld-${user.name}v1</value>
+                        </replacement>
+                        <replacement>
                             <token>helloworld/v1</token>
                             <value>helloworld/${user.name}v1</value>
                         </replacement>
                         <replacement>
                             <token>dev</token>
                             <value>${apigee.env}</value>
-                        </replacement>
-                        <replacement>
-                            <token>sage-dev.apigee.net</token>
-                            <value>${apigee.domain}</value>
                         </replacement>
                         <replacement>
                             <token>REPLACE-CLIENTID</token>

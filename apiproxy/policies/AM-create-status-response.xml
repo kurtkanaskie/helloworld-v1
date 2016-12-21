@@ -7,7 +7,8 @@
             {
                 "environment": "@environment.name#",
                 "apiproxy": "@apiproxy.name#",
-                "apiproxySuffix": "@proxy.pathsuffix#",
+                "basepath": "@proxy.basepath#",
+                "suffix": "@proxy.pathsuffix#",
                 "client": "@client.host#",
                 "time": "@system.time#",
                 "proxyLatency": "@total_client_time#",

@@ -4,6 +4,8 @@
 var factory = require('./factory.js');
 var config = require('../../config/config.json');
 
+var apiproxy = config.helloworld.apiproxy;
+var basepath = config.helloworld.basepath;
 var clientId = config.helloworld.clientId;
 var clientSecret = config.helloworld.clientSecret;
 var merchantId = config.helloworld.merchantId;
@@ -17,6 +19,8 @@ module.exports = function() {
         // this.apickli.storeValueInScenarioScope("clientSecret", "LOoE2q6enoqlTuBT");
 		// this.apickli.storeValueInScenarioScope("merchantId", "299659842982");
         // this.apickli.storeValueInScenarioScope("merchantKey", "N3H5G9X7Q3Q5");
+        this.apickli.storeValueInScenarioScope("apiproxy", apiproxy);
+        this.apickli.storeValueInScenarioScope("basepath", basepath);
         this.apickli.storeValueInScenarioScope("clientId", clientId);
         this.apickli.storeValueInScenarioScope("clientSecret", clientSecret);
 		this.apickli.storeValueInScenarioScope("merchantId", merchantId);

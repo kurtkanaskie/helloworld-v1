@@ -13,7 +13,7 @@ Feature: API proxy health
         Then response code should be 200
         And response header Content-Type should be application/json
         # And response body path $.environment should be dev
-        And response body path $.apiproxy should be `basepath`
+        And response body path $.apiproxy should be `apiproxy`
         And response body path $.client should be ^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$
         And response body path $.latency should be ^\d{1,2}
         And response body path $.message should be PONG
@@ -27,7 +27,8 @@ Feature: API proxy health
         Then response code should be 200
         And response header Content-Type should be application/json
         # And response body path $.environment should be dev
-        And response body path $.apiproxy should be `basepath`
+        And response body path $.apiproxy should be `apiproxy`
+        And response body path $.basepath should be `basepath`
         And response body path $.client should be ^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$
         And response body path $.latency should be ^\d{1,2}
         And response body path $.message should be STATUS

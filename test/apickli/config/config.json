@@ -2,6 +2,7 @@
     "helloworld": {
         "domain": "kurtkanaskie-dev.apigee.net",
         "basepath": "/helloworld/v1",
+        "apiproxy": "helloworld-v1",
         "clientId": "REPLACE-CLIENTID",
         "clientSecret": "REPLACE-CLIENTSECRET",
         "invalidClientId": "REPLACE-INVALID-CLIENTID",
