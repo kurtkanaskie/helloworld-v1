@@ -169,11 +169,18 @@ NOTE: the initial output from cucumber shows the proxy and basepath being used
 ```
 
 ##Other Miscellaneous Commands
-####Install and Run Tests by tag
+####Install and Run Tests by tag as default username (branch helloworld-kurtv1)
 * mvn -P dev install -DtestType=@health,@intg
-* mvn -P dev exec:exec@integration -DtestType=@health
+
+####Install and Run Tests by tag as specified username (branch helloworld-kurt-v1)
+* mvn -P dev clean install -DtestType=@health,@intg -Duser.name=yourname-
+
+####Install and Run Tests by tag as no username (master)
 * mvn -P dev clean install -DtestType=@health,@intg -Duser.name=
-* mvn -P dev clean install -DtestType=@health,@intg -Duser.name=yourname
+
+####Process-resources and Run Tests by tag
+* mvn -P test process-resources -Duser.name=kurtmac-
+* mvn -P test exec:exec@integration -DtestType=@health
 
 ###JMeter
 jmeter -n -l output.txt -t test/jmeter/helloworld.jmx -DtestData=helloworld_dev.csv -DthreadNum=1 -DrampUpPeriodSecs=1 -DloopCount=-1 -Drecycle=false

@@ -5,7 +5,7 @@
     <groupId>apigee</groupId>
     <artifactId>helloworld-v1</artifactId>
     <version>1</version>
-    <name>helloworld-${user.name}v1</name>
+    <name>helloworld-${deployment.suffix}v1</name>
     <packaging>pom</packaging>
 
     <pluginRepositories>
@@ -31,6 +31,7 @@
         <target.root.dir>${basedir}/target</target.root.dir>
         <tfs.changeset>TFS_CHANGESET</tfs.changeset>
         <build.tag>BUILD_TAG</build.tag>
+        <deployment.suffix>${user.name}</deployment.suffix>
     </properties>
 
     <!-- This is where you add all the environment specific properties under various profile names -->
@@ -278,11 +279,11 @@
                         </replacement>
                         <replacement>
                             <token>helloworld-v1</token>
-                            <value>helloworld-${user.name}v1</value>
+                            <value>helloworld-${deployment.suffix}v1</value>
                         </replacement>
                         <replacement>
                             <token>helloworld/v1</token>
-                            <value>helloworld/${user.name}v1</value>
+                            <value>helloworld/${deployment.suffix}v1</value>
                         </replacement>
                         <replacement>
                             <token>dev</token>
@@ -363,7 +364,7 @@
                     <!-- npm install -->
                     <execution>
                         <id>npm-install</id>
-                        <phase>compile</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -387,7 +388,7 @@
                                     ${apigee.env}
                                 </NODE_ENV>
                             </environmentVariables>
-                            <executable>node_modules/cucumber/bin/cucumber.js</executable>
+                            <executable>./node_modules/cucumber/bin/cucumber.js</executable>
                             <commandlineArgs>
                                 target/test/apickli/features --tags ${testType}
                             </commandlineArgs>

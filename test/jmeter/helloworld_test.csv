@@ -1,0 +1,5 @@
+testcaseid,userstory,testcasedescription,env,servername,path,execute,assertheader,assertcontent,assertcontentnegative
+helloworld-1-1,helloworld-1,valid ping,test,kurtkanaskie-test.apigee.net,/helloworld/v1/ping,Y,HTTP/1.1 200 OK,PONG,NON-EXISTENT-WORD
+helloworld-1-2,helloworld-2,valid status,test,kurtkanaskie-dev.apigee.test,/helloworld/v1/ping,Y,HTTP/1.1 200 OK,STATUS,NON-EXISTENT-WORD
+helloworld-1-3,helloworld-3,path suffix not found,dev,kurtkanaskie-test.apigee.net,/helloworld/v1/foo,Y,HTTP/1.1 404 Not Found,Resource not found,NON-EXISTENT-WORD
+helloworld-1-4,helloworld-4,path suffix not found,dev,kurtkanaskie-test.apigee.net,/helloworld/v1/foo/bar,Y,HTTP/1.1 404 Not Found,Resource not found,NON-EXISTENT-WORD
