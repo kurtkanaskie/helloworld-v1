@@ -387,7 +387,7 @@
                                     ${apigee.env}
                                 </NODE_ENV>
                             </environmentVariables>
-                            <executable>cucumberjs</executable>
+                            <executable>node_modules/cucumber/bin/cucumber.js</executable>
                             <commandlineArgs>
                                 target/test/apickli/features --tags ${testType}
                             </commandlineArgs>
