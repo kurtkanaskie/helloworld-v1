@@ -66,7 +66,7 @@ Here is the tree structure, with a little pruning for brevity:
         └── helloworld_dev.csv
 ```
 
-####Tests
+#### Tests
 To see what "tags" are in the tests for cucumberjs run `grep @ *.features` or `find . -name *.feature -exec grep @ {} \;`
 ```
 @intg
@@ -94,8 +94,8 @@ To see what "tags" are in the tests for cucumberjs run `grep @ *.features` or `f
     @ensure-target
 ```
 
-###Maven
-####Jenkins Commands
+### Maven
+#### Jenkins Commands
 The Jenkins build server runs Maven with this command for each of the feature branches. Note the use of `-Duser.name=yourname-`. That is so the build and deploy to Apigee creates a separate proxy with a separate basepath to allow independent feature development. Your proxy will show up with a name (e.g. helloworld-yourname-v1) and basepath (e.g. /helloworld/yourname-v1).
 
 NOTE: The use of user.name option is important, if omitted, Maven will use your username from the system you are running on. If set to nothing (-Duser.name=) then you will be using the "standard" proxy.
@@ -124,7 +124,7 @@ In addition to "replacing" that string other Maven phases (e.g. process-resource
 The most important change is to the `test/apickli/config/config.json` file which changes the basepath for the proxy so the tests go to the correct feature proxy in Apigee.
 
 
-##Local Install and Set Up
+## Local Install and Set Up
 In each source directory there is a `package.json` file that holds the required node packages.
 
 * Install node
@@ -135,7 +135,7 @@ In each source directory there is a `package.json` file that holds the required 
     * `npm install -g cucumberjs` (installs command line tools per OS (e.g. cucumberjs)
 
 
-##Running Tests Locally
+## Running Tests Locally
 Often it is necessary to interate over tests for a feature development. Since Apickli/Cucumber tests are mostly text based, its easy to do this locally. 
 Here are the steps:
 1 Install your feature proxy to Apigee if you are creating a new feature, otherwise just get a copy of the exising proxy you are building tests for.
@@ -168,29 +168,29 @@ NOTE: the initial output from cucumber shows the proxy and basepath being used
         And response body path $.message should be missing or invalid clientId
 ```
 
-##Other Miscellaneous Commands
-####Install and Run Tests by tag as default username (branch helloworld-kurtv1)
+## Other Miscellaneous Commands
+#### Install and Run Tests by tag as default username (branch helloworld-kurtv1)
 * mvn -P dev install -DtestType=@health,@intg
 
-####Install and Run Tests by tag as specified username (branch helloworld-kurt-v1)
+#### Install and Run Tests by tag as specified username (branch helloworld-kurt-v1)
 * mvn -P dev clean install -DtestType=@health,@intg -Duser.name=yourname-
 
-####Install and Run Tests by tag as no username (master)
+#### Install and Run Tests by tag as no username (master)
 * mvn -P dev clean install -DtestType=@health,@intg -Duser.name=
 
-####Process-resources and Run Tests by tag
+#### Process-resources and Run Tests by tag
 * mvn -P test process-resources -Duser.name=kurtmac-
 * mvn -P test exec:exec@integration -DtestType=@health
 
-###JMeter
+### JMeter
 jmeter -n -l output.txt -t test/jmeter/helloworld.jmx -DtestData=helloworld_dev.csv -DthreadNum=1 -DrampUpPeriodSecs=1 -DloopCount=-1 -Drecycle=false
 
-###JSLint
+### JSLint
 * jslint apiproxy/resources/jsc
 * mvn -P dev jshint:lint
 * mvn -P dev jshint:lint@jslint
 
-###Aplicki / Cucumber Standalone Tests
+### Aplicki / Cucumber Standalone Tests
 * cucumberjs test/apickli/features/ping.feature
 * cucumberjs test/apickli/features --tags @health
 * cucumberjs test/apickli/features --tags @intg
@@ -198,6 +198,6 @@ jmeter -n -l output.txt -t test/jmeter/helloworld.jmx -DtestData=helloworld_dev.
 * cucumberjs test/apickli/features --tags @intg,@health,@hmac
 
 
-####Diffing apiproxy directories
+#### Diffing apiproxy directories
 * diff -q --suppress-common-lines -r --side-by-side apiproxy-prev apiproxy -W 240
 * diff --suppress-common-lines -r --side-by-side apiproxy-prev apiproxy -W 240
