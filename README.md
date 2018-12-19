@@ -151,7 +151,7 @@ Alternatively, you can run the tests via Maven
 NOTE: the initial output from cucumber shows the proxy and basepath being used
 ```
     [yourname]$ cucumberjs test/apickli/features --tags @invalid-clientid-for-resource
-==> helloworld api: [sage-dev.apigee.net, /helloworld/yourname-v1]
+==> helloworld api: [ORG-ENV.apigee.net, /helloworld/yourname-v1]
     @intg
     Feature: Error handling
 
